@@ -69,9 +69,9 @@ def entry2md(entry):
         fp.close()
 
 #i = 0
-#for entry in all['entries']:
+for entry in all['entries']:
 #	print(i.keys())
 #    print(i)
 #    i+=1
-entry = all['entries'][90]
-entry2md(entry)
+#entry = all['entries'][90]
+    entry2md(entry)

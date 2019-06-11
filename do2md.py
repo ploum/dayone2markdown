@@ -1,20 +1,29 @@
 #!/bin/python
 import json
 import codecs
+import sys
 from datetime import datetime
 
 tag_symbol = "#"
 
-fp = open("Journal.json")
+if len(sys.argv) > 1:
+    filename = sys.argv[1]
+else:
+    print 'You need to pass a filename in argument. Ex: ./do2md.py Journal.json'
+    sys.exit()
+
+filename = sys.argv[1]
+
+fp = open(filename)
 all = json.load(fp)
 #all is a dict [u'entries', u'metadata']
 #metadata is not intersting (contains only a version number 1.0)
 
 #all['entries'] is a list of dict.
 #on entry is the following dict:
-# [u'uuid', u'tags', u'text', u'richText', u'creationOSVersion', 
-# u'creationDeviceModel', u'creationDevice', u'modifiedDate', 
-# u'creationOSName', u'creationDeviceType', u'duration', u'timeZone', 
+# [u'uuid', u'tags', u'text', u'richText', u'creationOSVersion',
+# u'creationDeviceModel', u'creationDevice', u'modifiedDate',
+# u'creationOSName', u'creationDeviceType', u'duration', u'timeZone',
 # u'starred', u'creationDate', u'weather', u'location'
 
 #entry2md is a function that will convert one single DayOne journal entry as

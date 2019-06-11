@@ -7,7 +7,7 @@ Work in progress.
 
 1. Export you DayOne journal as JSON and unzip the folder.
 2. Put the script in the unzipped folder.
-3. Run the script
+3. Run the script `./do2md.py Journal.json`
 
 ## Results :
 
@@ -15,7 +15,7 @@ Work in progress.
 2. A title is added as the date-time
 3. Pictures are inserted with a relative path ( photos/)
 4. Tags are inserted in the text as " #tag" (if they were not previously)
-5. Location of an entry is written at the end of the file with both address and coordinates. 
+5. Location of an entry is written at the end of the file with both address and coordinates.
 
 
 ## Limitations

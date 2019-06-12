@@ -38,7 +38,8 @@ def entry2md(entry):
         #Add date as the title
         text = "# "+str(date)+"\n\n"+entry['text']
 	#for some reason, "." and () are escaped
-	text = text.replace("\.",".").replace("\(","(").replace("\)",")").replace("\-","-")
+	text = text.replace("\.",".").replace("\(","(")\
+                   .replace("\)",")").replace("\-","-")
 	tags = ""
 	#we add tags at the ends of each entry with the tag symbol
         #but only if the tag is not already in the text
@@ -53,7 +54,9 @@ def entry2md(entry):
 	if 'photos' in entry.keys():
 		for p in entry['photos']:
 			#for each photos, we create a pair identifier/filename
-			photos[p['identifier']] = "%s.%s" %(p['md5'],p['type'])
+                        #it looks that, sometimes, the photo was lost (no md5)
+                        if 'md5' in p:
+			    photos[p['identifier']] = "%s.%s" %(p['md5'],p['type'])
 		for ph in photos:
 			original = "![](dayone-moment://%s)" %ph
 			new = "![](photos/%s)" %photos[ph]

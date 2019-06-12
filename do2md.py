@@ -38,7 +38,7 @@ def entry2md(entry):
         #Add date as the title
         text = "# "+str(date)+"\n\n"+entry['text']
 	#for some reason, "." and () are escaped
-	text = text.replace("\.",".").replace("\(","(").replace("\)",")")
+	text = text.replace("\.",".").replace("\(","(").replace("\)",")").replace("\-","-")
 	tags = ""
 	#we add tags at the ends of each entry with the tag symbol
         #but only if the tag is not already in the text
